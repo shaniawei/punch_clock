@@ -25,6 +25,8 @@
     <view class="content">暂无打卡项目哦~</view>
     <button type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
         disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover"> default </button>
+         <button type="warning" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover"> default </button>
   </view>
   <view class="attent">
     <view class='tips'>我参加的打卡</view>
