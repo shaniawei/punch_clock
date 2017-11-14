@@ -18,11 +18,13 @@
         "pagePath": "pages/index/index",
         "text": "打卡",
         "iconPath":"./resources/checked_right.png",
-        "selectedIconPath":""
+        "selectedIconPath":"./resources/checked_right.png"
       },
       {
         "pagePath": "pages/find/find",
-        "text": "发现"
+        "text": "发现",
+        "iconPath": "./resources/checked_right.png",
+        "selectedIconPath": "./resources/checked_right.png"
       }
     ]
   }
