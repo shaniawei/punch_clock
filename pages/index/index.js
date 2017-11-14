@@ -30,9 +30,9 @@ Page({
             userInfo: res.userInfo,
             hasUserInfo: true
           })
+          console.log(app.globalData.userInfo)
         }
       })
-      console.log(app.globalData.userInfo)
     }
   },
   getUserInfo: function(e) {

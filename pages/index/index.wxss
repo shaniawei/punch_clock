@@ -1,6 +1,6 @@
 /**index.wxss**/
 .main-clock .head{
-  background: url("../../resources/bg_01.jpg") no-repeat;
+  background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510664355414&di=9ab46cb8c43775f49f98560982d99f13&imgtype=0&src=http%3A%2F%2Fi3.letvimg.com%2Flc05_isvrs%2F201612%2F17%2F16%2F16%2Fa4a0020c-11a8-4129-9a4a-0a7f0d929d47%2Fthumb%2F2_400_225.jpg") no-repeat;
   background-size: 100% 100%;
   height: 500rpx;
   width: 100%;
