@@ -1,12 +1,29 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/find/find"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "打卡",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle":"white",
+    "backgroundColor":"#eee",
+    "color":"#999",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "打卡",
+        "iconPath":"./resources/checked_right.png",
+        "selectedIconPath":""
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现"
+      }
+    ]
   }
 }

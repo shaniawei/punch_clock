@@ -1,44 +1,103 @@
 /**index.wxss**/
-/* .userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-} */
-
-.header{
-  background: url('http://116.img.pp.sohu.com/images/blog/2007/8/7/6/7/114d70a6084.jpg') 0 0 no-repeat;
+.main-clock .head{
+  background: url("../../resources/bg_01.jpg") no-repeat;
+  background-size: 100% 100%;
+  height: 500rpx;
   width: 100%;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
 }
 
-.userinfo-avatar {
+.main-clock .head .userinfo-avatar{
   width: 128rpx;
   height: 128rpx;
-  margin: 20rpx;
   border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
-.header .useravatar{
+.main-clock .head .userinfo-nickname{
+  font-size: 48rpx;
+  color: #fff;
   position: absolute;
-    top: 200rpx;
-  left: 300rpx;
+  left: 50%;
+  top: 65%;
+  transform: translateX(-50%);
+}
+
+.main-clock .clock_btn{
+  width: 60%;
+  margin: 40rpx auto;
+}
+
+.main-clock .clock_project{
+  padding: 0 22rpx;
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 50rpx;
+}
+
+.main-clock .clock_project .content-no{
+  border:1px dashed #ddd;
+  font-size: 26rpx;
+  text-align: center;
+  padding: 22rpx 0;
+  margin: 22rpx 0;
+  color: #666;
+}
+.main-clock .content-yes{
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 10px #999;
+  padding: 24rpx;
+  display: flex;
+  margin: 22rpx 0;
+  position: relative;
+}
+.main-clock .content-yes .projectImage{
+  width: 180rpx;
+  height: 180rpx;
+  background-color: #eee;
+  margin-right: 22rpx;
+}
+
+.main-clock .projectInfo{
+  flex:2;
+}
+
+.main-clock .projectInfo .title{
+  font-weight: bold;
+  
+}
+.main-clock .groupMaster{
+  margin: 22rpx 0;
+}
+.main-clock .groupMaster .masterImage{
+  width: 50rpx;
+  height: 50rpx;
+  background: #eee;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+
+.main-clock .groupMaster .masterName{
+  vertical-align: middle;
+}
+
+.main-clock .timeAndNumber image{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+}
+
+.main-clock .timeAndNumber  text{
+  vertical-align: middle
+}
+
+.project_clock_btn{
+  position: absolute;
+  right: 22rpx;
+  top: 50%;
+  transform: translateY(-50%);
 }

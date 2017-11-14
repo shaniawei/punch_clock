@@ -4,10 +4,10 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    noClockProject:false,
+    hasClockProject: false
   },
   //事件处理函数
   bindViewTap: function() {
@@ -17,13 +17,12 @@ Page({
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
-      console.log(111111111)
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else{
-      console.log(222222)
+      console.log(app.globalData.userInfo)
+    }  else {
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
@@ -33,6 +32,7 @@ Page({
           })
         }
       })
+      console.log(app.globalData.userInfo)
     }
   },
   getUserInfo: function(e) {

@@ -1,48 +1,69 @@
 <!--index.wxml-->
- <!-- <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+
+<view class="main-clock">
+  <view class="head">
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>  -->
-<view class='container'>
-  <view class="header">
-    <image bindtap="bindViewTap" class="userinfo-avatar useravatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-  </view>
-  <view class="create">
-    <view class='center'>
-      + 创建一个新的打卡
+  <button type='primary' class="add-clock clock_btn">加入一个好玩的打卡</button>
+  <button type='default' class="create-clock clock_btn">+ 创建一个新的打卡</button>
+  <view class="managebyme clock_project">
+    <text>我管理的打卡项目</text>
+    <!--无管理项目  -->
+    <view class="content-no">
+      暂无打卡项目哦~
     </view>
-  </view>
-  <view class="manage">
-    <view class='tips'>我管理的打卡</view>
-    <view class="content">暂无打卡项目哦~</view>
-    <button type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
-        disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover"> default </button>
-         <button type="warn" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
-        disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover"> default </button>
-  </view>
-  <view class="attent">
-    <view class='tips'>我参加的打卡</view>
-    <view class="content">
-      <image class="left" src="{{userInfo.avatarUrl}}"></image>
-      <view class="center">
-        <text>单词打卡</text>
-        <image src="{{userInfo.avatarUrl}}"></image>
-        <text>美美美</text>
-        <view class="time">
-          <icon></icon><text>20:00</text>
-          <icon></icon><text>1人已打卡</text>
+    <!--有管理项目  -->
+    <view wx:if="{{ hasClockProject }}">
+      <view class="content-yes">
+        <image src="" class="projectImage"></image>
+        <view class="projectInfo">
+          <text class="title">健身运动</text>
+          <view class="groupMaster">
+            <image class="masterImage" src=""></image>
+            <text class="masterName">美美</text>
+          </view>
+          <view class="timeAndNumber">
+            <image src="../../resources/clock_icon.png"></image>
+            <text class="time">17:00</text>
+            <image src="../../resources/young_icon.png" style="margin-left:22rpx;"></image>
+            <text class="number">0</text>
+            <text>人已打卡</text>
+          </view>
+        </view>
+        <view class="project_clock_btn">
+          <button type="primary"  size="mini">打卡</button>
         </view>
       </view>
-      <view class="right">
-        <text>已打卡</text>
+    </view>
+  </view>
+  <view class="managebyme clock_project">
+    <text>我参加的打卡项目</text>
+    <!--无参加项目  -->
+    <view class="content-no" wx:if="{{ noClockProject }}">
+      暂无打卡项目哦~
+    </view>
+    <!--有参加项目  -->
+    <view>
+      <view class="content-yes">
+        <image src="" class="projectImage"></image>
+        <view class="projectInfo">
+          <text class="title">健身运动</text>
+          <view class="groupMaster">
+            <image class="masterImage" src=""></image>
+            <text class="masterName">美美</text>
+          </view>
+          <view class="timeAndNumber">
+            <image src="../../resources/clock_icon.png"></image>
+            <text class="time">17:00</text>
+            <image src="../../resources/young_icon.png" style="margin-left:22rpx;"></image>
+            <text class="number">0</text>
+            <text>人已打卡</text>
+          </view>
+        </view>
+        <view class="project_clock_btn">
+          <button type="primary"  size="mini">打卡</button>
+        </view>
       </view>
     </view>
   </view>
