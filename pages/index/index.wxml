@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<!-- <view class="container">
+ <!-- <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -10,10 +10,10 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
-</view> -->
+</view>  -->
 <view class='container'>
   <view class="header">
-    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <image bindtap="bindViewTap" class="userinfo-avatar useravatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
   </view>
   <view class="create">
     <view class='center'>
@@ -25,7 +25,7 @@
     <view class="content">暂无打卡项目哦~</view>
     <button type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
         disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover"> default </button>
-         <button type="warning" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
+         <button type="warn" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
         disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover"> default </button>
   </view>
   <view class="attent">
