@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<view class='container'>
+  <view class="header">
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  </view>
+  <view class="create">
+    <view class='center'>
+      + 创建一个新的打卡
+    </view>
+  </view>
+  <view class="manage">
+    <view class='tips'>我管理的打卡</view>
+    <view class="content">暂无打卡项目哦~</view>
+  </view>
+  <view class="attent">
+    <view class='tips'>我参加的打卡</view>
+    <view class="content">
+      <image class="left" src="{{userInfo.avatarUrl}}"></image>
+      <view class="center">
+        <text>单词打卡</text>
+        <image src="{{userInfo.avatarUrl}}"></image>
+        <text>美美美</text>
+        <view class="time">
+          <icon></icon><text>20:00</text>
+          <icon></icon><text>1人已打卡</text>
+        </view>
+      </view>
+      <view class="right">
+        <text>已打卡</text>
+      </view>
+    </view>
+  </view>
+</view>
