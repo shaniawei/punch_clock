@@ -7,7 +7,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     noClockProject:false,
-    hasClockProject: false
+    hasClockProject: false,
+    test:""
   },
   //事件处理函数
   onLoad: function () {
@@ -46,6 +47,19 @@ Page({
   clockPage:function(){
     wx.navigateTo({
       url: '../clock/clock'
+    })
+  },
+  test:function(){
+    var that=this
+    wx.request({
+      url: 'http://127.0.0.1:8999/test',
+      method: 'GET',
+      success: function (data) {
+        console.log(data, 'test')
+        that.setData({
+          test:data.data
+        })
+      }
     })
   }
 })
