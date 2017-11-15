@@ -15,10 +15,55 @@
 .week_diary{
   margin: 30rpx 0;
 }
-.week_diary .week{
+.week_diary .item{
   display: flex;
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto 28rpx;
   justify-content: space-between;
   font-family: Arial, Helvetica, sans-serif;
+}
+.week_diary .item text{
+  border-radius: 50%;
+  padding: 10rpx;
+}
+.week_diary  .day text{
+  background-color: #eee;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.clock_rule button{
+  border-radius:50%;
+  width:200rpx;
+  line-height:200rpx;
+  border:4rpx solid greenyellow;
+
+}
+
+.clock_rule .clock_time_limit{
+  text-align: center;
+  color: green;
+  font-size: 28rpx;
+  margin-top: 18rpx;
+}
+
+.clock_rule .rule_btns{
+  display: flex;
+  margin: 55rpx 0;
+}
+.clock_rule .rule_btns .item{
+  font-size: 28rpx;
+  color: #999;
+  border-right: 1px solid #ddd;
+  flex: 1;
+  text-align: center;
+}
+.clock_rule .rule_btns .item.master{
+  color: green;
+  border-right: 0;
+}
+.bg-block {
+  background-color: #ddd;
+  height: 10rpx;
+  width: 100%;
 }

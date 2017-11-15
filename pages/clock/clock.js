@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dateArray:[]
+    dateArray:[13,14,15,16,17,18,19]
   },
 
   /**

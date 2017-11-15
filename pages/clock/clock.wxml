@@ -8,7 +8,7 @@
   <text>天</text>
 </view>
 <view class="week_diary">
-  <view class="week">
+  <view class="week item">
     <text>一</text>
     <text>二</text>
     <text>三</text>
@@ -17,7 +17,17 @@
     <text>六</text>
     <text>日</text>
   </view>
-  <view class="day">
-    <text wx:for="{{ dateArray }}" wx:key="DAY">{{ item }}</text>
+  <view class="day item">
+    <text class="dayTime" wx:for="{{ dateArray }}" wx:key="DAY">{{ item }}</text>
   </view>
 </view>
+<view class="clock_rule">
+  <button type="primary">打卡</button>
+  <view class="clock_time_limit">17:00 - 18:30</view>
+  <view class="rule_btns">
+    <view class="item">打卡规则</view>
+    <view class="item">打卡设置</view>
+    <view class="item master">管理入口</view>
+  </view>
+</view>
+<view class="bg-block"></view>

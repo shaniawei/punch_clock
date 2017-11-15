@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/clock/clock",
     "pages/about_me/about_me",
-    "pages/find/find",
-    "pages/index/index" 
-  ],
+    "pages/find/find"
+      ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

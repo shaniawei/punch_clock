@@ -10,11 +10,6 @@ Page({
     hasClockProject: false
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -41,6 +36,16 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  joinProject:function(){
+    wx.switchTab({
+      url: '../find/find'
+    })
+  },
+  clockPage:function(){
+    wx.navigateTo({
+      url: '../clock/clock'
     })
   }
 })
