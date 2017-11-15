@@ -1,0 +1,24 @@
+/* clock.wxss */
+.m-clock-times{
+  margin: 40rpx 0 0 24rpx;
+}
+.m-clock-times>image{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.m-clock-times>text{
+  vertical-align: middle;
+  font-size: 30rpx;
+}
+.week_diary{
+  margin: 30rpx 0;
+}
+.week_diary .week{
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+}

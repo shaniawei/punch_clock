@@ -35,7 +35,6 @@
 .m-aboutMe .clock_diary .diary-con{
   border-bottom: 1px solid #ddd;
   padding: 22rpx 24rpx;
-  position: relative;
 }
 
 .m-aboutMe .con-no{
@@ -47,6 +46,10 @@
 }
 .m-aboutMe .con-yes{
   padding-top: 22rpx;
+}
+
+.m-aboutMe .con-yes .head{
+  position: relative;
 }
 .diary-con .fate{
   display: inline-block;
@@ -60,7 +63,7 @@
    position: absolute;
    top: 50%;
    transform: translateY(-50%);
-   right: 24rpx;
+   right: 0;
    cursor: pointer;
  }
 

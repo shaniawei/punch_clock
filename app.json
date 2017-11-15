@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/clock/clock",
     "pages/about_me/about_me",
     "pages/find/find",
-    "pages/index/index"
-    
+    "pages/index/index" 
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,20 +19,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "打卡",
-        "iconPath": "./resources/check_mark.png",
-        "selectedIconPath": "./resources/checked_right.png"
+        "iconPath": "./resources/images/check_mark.png",
+        "selectedIconPath": "./resources/images/checked_right.png"
       },
       {
         "pagePath": "pages/find/find",
         "text": "发现",
-        "iconPath": "./resources/lupita.png",
-        "selectedIconPath": "./resources/monitoring.png"
+        "iconPath": "./resources/images/lupita.png",
+        "selectedIconPath": "./resources/images/monitoring.png"
       },
       {
         "pagePath": "pages/about_me/about_me",
         "text": "我的",
-        "iconPath": "./resources/young_icon.png",
-        "selectedIconPath": "./resources/user-green.png"
+        "iconPath": "./resources/images/young_icon.png",
+        "selectedIconPath": "./resources/images/user-green.png"
       }
     ]
   }

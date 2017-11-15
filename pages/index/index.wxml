@@ -24,9 +24,9 @@
             <text class="masterName">美美</text>
           </view>
           <view class="timeAndNumber">
-            <image src="../../resources/clock_icon.png"></image>
+            <image src="../../resources/images/clock_icon.png"></image>
             <text class="time">17:00</text>
-            <image src="../../resources/young_icon.png" style="margin-left:22rpx;"></image>
+            <image src="../../resources/images/young_icon.png" style="margin-left:22rpx;"></image>
             <text class="number">0</text>
             <text>人已打卡</text>
           </view>
@@ -54,9 +54,9 @@
             <text class="masterName">美美</text>
           </view>
           <view class="timeAndNumber">
-            <image src="../../resources/clock_icon.png"></image>
+            <image src="../../resources/images/clock_icon.png"></image>
             <text class="time">17:00</text>
-            <image src="../../resources/young_icon.png" style="margin-left:22rpx;"></image>
+            <image src="../../resources/images/young_icon.png" style="margin-left:22rpx;"></image>
             <text class="number">0</text>
             <text>人已打卡</text>
           </view>

@@ -6,7 +6,7 @@
   </view>
   <view class="clock_diary">
     <view class="title">
-      <image src="../../resources/notes.png"></image>
+      <image src="../../resources/images/notes.png"></image>
       <text>我的打卡日记</text>
     </view>
     <view class="diary-con">
@@ -22,7 +22,7 @@
             <text>1</text>
             <text>天</text>
           </view>
-          <image class="delete_diary_btn" src="../../resources/trash.png"></image>
+          <image class="delete_diary_btn" src="../../resources/images/trash.png"></image>
         </view>
         <view class="diary_txt">
           哈哈哈哈哈哈哈哈哈哈哈

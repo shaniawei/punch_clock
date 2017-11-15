@@ -1,0 +1,23 @@
+<!--clock.wxml-->
+<import src="../../resources/clock_info_module.wxml"/>
+<template is="clock_info_module" data="{{project_name: '早起',people_number:0,clock_times:1}}"/>
+<view class="m-clock-times">
+  <image src="../../resources/images/notes.png"></image>
+  <text>已打卡</text>
+  <text>1</text>
+  <text>天</text>
+</view>
+<view class="week_diary">
+  <view class="week">
+    <text>一</text>
+    <text>二</text>
+    <text>三</text>
+    <text>四</text>
+    <text>五</text>
+    <text>六</text>
+    <text>日</text>
+  </view>
+  <view class="day">
+    <text wx:for="{{ dateArray }}" wx:key="DAY">{{ item }}</text>
+  </view>
+</view>
