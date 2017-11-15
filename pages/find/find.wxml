@@ -1,2 +1,23 @@
 <!--find.wxml-->
-<text>find.wxml</text>
+
+<view class="m-find">
+  <view class="find-item">
+    <view class="clockInfo">
+      <view class="mask">
+        <view class="con">
+          <view class="title">早起</view>
+          <image src="http://img0.imgtn.bdimg.com/it/u=2208180928,266741186&fm=27&gp=0.jpg" class="masterImage"></image>
+          <text class="masterName">喵喵</text>
+          <view class="clock_description">哈哈哈哈哈啊哈</view>
+          <view class="clock_status">
+            <text>1</text>
+            <text>人参加 | </text>
+            <text>0</text>
+            <text>次打卡</text>
+          </view>
+        </view>
+      </view>
+    </view>  
+    <button type="primary" class="join_btn">立即参加</button>
+  </view>
+</view>

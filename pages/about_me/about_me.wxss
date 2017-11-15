@@ -1,0 +1,82 @@
+/* about_me.wxss */
+.m-aboutMe .mine-info{
+  padding: 24rpx;
+  border-bottom: 1px solid #ddd;
+}
+
+.m-aboutMe .mine-info>image,.diary-con .head>image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 22rpx;
+}
+
+.m-aboutMe .mine-info>text,.diary-con .fate>.nickname{
+  vertical-align: middle;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+.m-aboutMe .clock_diary .title{
+  padding: 34rpx 24rpx 24rpx;
+  border-bottom: 1px solid #ddd;
+}
+.m-aboutMe .clock_diary .title>image{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+}
+.m-aboutMe .clock_diary .title>text{
+  vertical-align: middle;
+  font-size: 30rpx;
+}
+
+.m-aboutMe .clock_diary .diary-con{
+  border-bottom: 1px solid #ddd;
+  padding: 22rpx 24rpx;
+  position: relative;
+}
+
+.m-aboutMe .con-no{
+  border: 1px dashed #ddd;
+  padding: 22rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #666;
+}
+.m-aboutMe .con-yes{
+  padding-top: 22rpx;
+}
+.diary-con .fate{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 26rpx;
+  color: #999;
+}
+ .m-aboutMe .con-yes .delete_diary_btn{
+   width: 35rpx;
+   height: 35rpx;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   right: 24rpx;
+   cursor: pointer;
+ }
+
+ .m-aboutMe .diary_txt{
+   padding-left: 92rpx;
+   margin: 30rpx 0;
+ }
+
+  .m-aboutMe .clock_project_name{
+    padding-left: 92rpx;
+    font-size: 30rpx;
+    color: green;
+    margin-bottom: 30rpx;
+  }
+    .m-aboutMe .publish_time{
+      padding-left: 92rpx;
+      color: #999;
+      font-size: 28rpx;
+    }

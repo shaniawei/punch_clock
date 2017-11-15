@@ -1,1 +1,51 @@
 /* find.wxss */
+
+.m-find .find-item{
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 10px #999;
+  width: 95%;
+  margin: 30rpx auto 0;
+  font-size: 38rpx;
+}
+
+.m-find .find-item .clockInfo{
+  background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510724028448&di=c0c5f7354ff334fe2935e088cbf79b05&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fa044ad345982b2b704879d2c3badcbef76099b3a.jpg') no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 350rpx;
+  color: #fff;
+  
+}
+
+ .m-find .find-item .mask{
+  width: 100%;
+  height: 103%;
+  background: rgba(0,0,0,0.4);
+  padding: 22rpx;
+  box-sizing: border-box;
+  position: relative;
+} 
+
+.m-find  .clockInfo .masterImage{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin: 22rpx 18rpx 22rpx 0;
+  vertical-align: middle;
+}
+
+.m-find  .clockInfo .masterName{
+  vertical-align: middle;
+}
+
+.m-find  .clockInfo .clock_status{
+  font-size: 30rpx;
+  position: absolute;
+  bottom: 45rpx;
+}
+
+ .m-find .find-item .join_btn{
+   width: 60%;
+   line-height: 2rem;
+   margin: 40rpx auto;
+ }

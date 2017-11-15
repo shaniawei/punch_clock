@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/find/find"
+    "pages/about_me/about_me",
+    "pages/find/find",
+    "pages/index/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,21 +12,27 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "borderStyle":"white",
-    "backgroundColor":"#eee",
-    "color":"#999",
+    "borderStyle": "white",
+    "backgroundColor": "#eee",
+    "color": "#999",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "打卡",
-        "iconPath":"./resources/checked_right.png",
-        "selectedIconPath":"./resources/checked_right.png"
+        "iconPath": "./resources/check_mark.png",
+        "selectedIconPath": "./resources/checked_right.png"
       },
       {
         "pagePath": "pages/find/find",
         "text": "发现",
-        "iconPath": "./resources/checked_right.png",
-        "selectedIconPath": "./resources/checked_right.png"
+        "iconPath": "./resources/lupita.png",
+        "selectedIconPath": "./resources/monitoring.png"
+      },
+      {
+        "pagePath": "pages/about_me/about_me",
+        "text": "我的",
+        "iconPath": "./resources/young_icon.png",
+        "selectedIconPath": "./resources/user-green.png"
       }
     ]
   }

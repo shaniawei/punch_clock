@@ -5,7 +5,7 @@
     <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
-  <button type='primary' class="add-clock clock_btn">加入一个好玩的打卡</button>
+  <button type='primary' class="add-clock clock_btn" size="default">加入一个好玩的打卡</button>
   <button type='default' class="create-clock clock_btn">+ 创建一个新的打卡</button>
   <view class="managebyme clock_project">
     <text>我管理的打卡项目</text>
