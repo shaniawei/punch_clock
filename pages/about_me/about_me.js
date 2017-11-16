@@ -6,9 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{}
+    userInfo:{},
+    isdelete:true
   },
-
+  //删除日记
+  deleteDiary: function () {
+    this.setData({
+      isdelete: !this.data.isdelete
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

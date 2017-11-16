@@ -1,0 +1,89 @@
+<!--create_clock.wxml-->
+<view class="m-create">
+  <view class="item">
+    <view class="project_name">
+      <image src="../../resources/images/pencil98.png"></image>
+      <text>打卡项目名称</text>
+    </view>
+    <view class="txt">
+      <textarea  placeholder="50字以内" auto-height maxlength="50"/>
+    </view>
+  </view>
+  <view class="item">
+    <view class="project_name">
+      <image src="../../resources/images/pencil98.png"></image>
+      <text>打卡详细描述</text>
+    </view>
+    <view class="txt">
+      <textarea  placeholder="请输入打卡详细内容，100字以内" auto-height maxlength="100"/>
+    </view>
+  </view>
+  <view class="item">
+    <view class="project_name">
+      <image src="../../resources/images/pencil98.png"></image>
+      <text>设置每日打卡时间</text>
+    </view>
+    <view class="txt">
+      <radio-group bindchange="radioChange">
+        <label class="radio group">
+          <radio value="0"/>
+          <text>全天任意时间</text>
+        </label>
+        <label class="radio group">
+          <radio value="1"/>
+          <text>指定时间段</text>
+        </label>
+      </radio-group>
+      <view class="timeSelect" hidden="{{ isLimitTime }}">
+        <view class="group">
+          <text>开始时间</text>
+            <picker mode="time" value="{{ startTime }}"  data-id="START" bindchange="bindTimeChange">
+              <view class="picker">{{ startTime }}</view>
+            </picker>
+        </view>
+        <view class="group">
+          <text>结束时间</text>
+            <picker mode="time" value="{{ endTime }}"  data-id="END" bindchange="bindTimeChange">
+              <view class="picker">{{ endTime }}</view>
+            </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+   <view class="item">
+    <view class="project_name">
+      <image src="../../resources/images/pencil98.png"></image>
+      <text>设置开始结束时间</text>
+    </view>
+    <view class="txt">
+      <radio-group bindchange="radioChange">
+        <label class="radio group">
+          <radio value="2"/>
+          <text>不限制日期 长期打卡</text>
+        </label>
+        <label class="radio group">
+          <radio value="3"/>
+          <text>指定打卡开始/结束日期</text>
+        </label>
+      </radio-group>
+      <view class="timeSelect" hidden="{{ isLimitDate }}">
+        <view class="group">
+          <text>开始日期</text>
+          <picker mode="date" value="{{ startDate }}"  data-id="START" bindchange="bindDateChange">
+            <view class="picker">{{ startDate }}</view>
+          </picker>
+        </view>
+        <view class="group">
+          <text>结束日期(包含)</text>
+          <picker mode="date" value="{{ endDate }}"  data-id="END" bindchange="bindDateChange">
+            <view class="picker">{{ endDate }}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view> 
+  <view class="m-create-btn">
+    创建打卡
+  </view>
+</view>
+

@@ -10,14 +10,13 @@ Page({
     hasClockProject: false,
     test:""
   },
-  //事件处理函数
+  //获取用户信息
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-      console.log(app.globalData.userInfo)
     }  else {
       wx.getUserInfo({
         success: res => {
@@ -26,24 +25,23 @@ Page({
             userInfo: res.userInfo,
             hasUserInfo: true
           })
-          console.log(app.globalData.userInfo)
         }
       })
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
+  //进入加入打卡(发现)页面
   joinProject:function(){
     wx.switchTab({
       url: '../find/find'
     })
   },
+  //进入创建打卡页面
+  createProject:function(){
+    wx.navigateTo({
+      url: '../create_clock/create_clock',
+    })
+  },
+  //进入打卡页面
   clockPage:function(){
     wx.navigateTo({
       url: '../clock/clock'

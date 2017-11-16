@@ -1,10 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/clock/clock",
+    "pages/create_clock/create_clock",
     "pages/about_me/about_me",
+    
+    "pages/clock/clock",
+    
     "pages/find/find"
-      ],
+    
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

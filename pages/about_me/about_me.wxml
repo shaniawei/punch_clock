@@ -22,7 +22,7 @@
             <text>1</text>
             <text>天</text>
           </view>
-          <image class="delete_diary_btn" src="../../resources/images/trash.png"></image>
+          <image class="delete_diary_btn" src="../../resources/images/trash.png" bindtap="deleteDiary"></image>
         </view>
         <view class="diary_txt">
           哈哈哈哈哈哈哈哈哈哈哈
@@ -32,6 +32,21 @@
           <text>3</text>
           <text>分钟前</text>
         </view>
+      </view>
+    </view>
+  </view>
+  <view class="delete_sure_popwindow mask" hidden="{{isdelete}}">
+    <view class="con">
+      <view class="title">
+        删除确认
+      </view>
+      <view class="attention">
+        确定要删除该日志？删除后不可恢复
+      </view>
+      <view class="delete_btn">
+        <text class="sure">确定</text>
+        <text class="cancel" hidden="{{ isdelete }}" bindtap="deleteDiary">取消</text>
+        <text style="clear:both;"></text>
       </view>
     </view>
   </view>

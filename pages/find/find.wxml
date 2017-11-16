@@ -18,6 +18,6 @@
         </view>
       </view>
     </view>  
-    <button type="primary" class="join_btn">立即参加</button>
+    <button type="primary" class="join_btn" bindtap="jumpClock">立即参加</button>
   </view>
 </view>

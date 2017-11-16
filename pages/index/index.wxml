@@ -6,7 +6,7 @@
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
   <button type='primary' class="add-clock clock_btn" size="default" bindtap="joinProject">加入一个好玩的打卡</button>
-  <button type='default' class="create-clock clock_btn" bindtap="test">+ 创建一个新的打卡{{test}}</button>
+  <button type='default' class="create-clock clock_btn" bindtap="test" bindtap="createProject">+ 创建一个新的打卡{{test}}</button>
   <view class="managebyme clock_project">
     <text>我管理的打卡项目</text>
     <!--无管理项目  -->

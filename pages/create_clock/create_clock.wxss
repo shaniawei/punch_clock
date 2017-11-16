@@ -1,0 +1,65 @@
+/* create_clock.wxss */
+page {
+  background-color: #eee;
+}
+.m-create .item{
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  padding-left:24rpx;
+  border-bottom: 1px solid #ddd;
+}
+.m-create .project_name{
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #ddd;
+}
+.m-create .project_name >image{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  margin-right: 14rpx;
+}
+.m-create .project_name >text{
+  vertical-align: middle;
+  font-size: 30rpx;
+  color: #666;
+}
+.m-create .txt textarea{ 
+   width:702rpx; 
+   font-size: 32rpx;
+   padding: 25rpx 24rpx 29rpx 0; 
+}
+.m-create .txt .group{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  display: block;
+}
+.m-create .txt .radio.group:first-child,.timeSelect .group{
+  border-bottom:1px solid #ddd;
+}
+.m-create .txt .group text{
+  vertical-align: middle;
+}
+
+.m-create .timeSelect .group text{
+  color: #999;
+  display: inline-block;
+  width: 260rpx;
+}
+
+.m-create .timeSelect picker{
+  display: inline-block;
+  width: 180rpx;
+}
+
+.m-create .m-create-btn{
+  color: #fff;
+  background-color: green;
+  text-align: center;
+  width: 90%;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 30rpx auto 60rpx;
+  border-radius: 8rpx;
+}

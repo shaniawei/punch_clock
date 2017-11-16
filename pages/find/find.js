@@ -62,5 +62,12 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  // 跳转到打卡页面
+  jumpClock:function(){
+    wx.navigateTo({
+      url: '../clock/clock',
+    })
   }
 })
