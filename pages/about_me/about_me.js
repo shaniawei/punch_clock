@@ -6,13 +6,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{},
-    isdelete:true
+    userInfo:{}
   },
   //删除日记
   deleteDiary: function () {
-    this.setData({
-      isdelete: !this.data.isdelete
+    wx.showModal({
+      title: '删除确认',
+      content: '确定要删除该日志？删除后不可恢复',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
   },
   /**
