@@ -1,34 +1,25 @@
-// clock.js
-var app=getApp();
+// diary.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    dateArray:null
+  
   },
-  jumpDiary:function(){
-    wx.navigateTo({
-      url: '../diary/diary',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.dateArray)
-    this.setData({
-      dateArray:app.globalData.dateArray
-    })
-
+  
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+  
   },
 
   /**

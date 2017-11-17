@@ -22,7 +22,7 @@
   </view>
 </view>
 <view class="clock_rule">
-  <button type="primary">打卡</button>
+  <button type="primary" bindtap="jumpDiary">打卡</button>
   <view class="clock_time_limit">17:00 - 18:30</view>
   <view class="rule_btns">
     <view class="item">打卡规则</view>
