@@ -17,7 +17,9 @@
           </view>
         </view>
       </view>
-    </view>  
-    <button type="primary" class="join_btn" bindtap="jumpClock">立即参加</button>
+    </view>
+    <navigator url='../clock/clock' open-type='navigateTo' hover-class='none'>
+      <button type="primary" class="join_btn">立即参加</button>
+    </navigator>
   </view>
 </view>

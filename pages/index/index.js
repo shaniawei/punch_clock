@@ -29,24 +29,6 @@ Page({
       })
     }
   },
-  //进入加入打卡(发现)页面
-  joinProject:function(){
-    wx.switchTab({
-      url: '../find/find'
-    })
-  },
-  //进入创建打卡页面
-  createProject:function(){
-    wx.navigateTo({
-      url: '../create_clock/create_clock',
-    })
-  },
-  //进入打卡页面
-  clockPage:function(){
-    wx.navigateTo({
-      url: '../clock/clock'
-    })
-  },
   test:function(){
     var that=this
     wx.request({

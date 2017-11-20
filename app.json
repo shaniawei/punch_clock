@@ -1,10 +1,11 @@
 {
   "pages": [
-    
     "pages/index/index",
+    "pages/clock/clock",
+    
     "pages/create_clock/create_clock",
     "pages/about_me/about_me",
-    "pages/clock/clock",
+    
     "pages/find/find",
     "pages/diary/diary"
   ],
@@ -12,7 +13,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "打卡",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh":true
   },
   "tabBar": {
     "borderStyle": "white",
@@ -38,5 +40,6 @@
         "selectedIconPath": "./resources/images/user-green.png"
       }
     ]
-  }
+  },
+  "debug":true
 }

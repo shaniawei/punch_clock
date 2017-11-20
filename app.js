@@ -1,27 +1,6 @@
 //app.js
 App({
   onLaunch: function () {
-    //判断 当日是周几,以此显示页面的缩小版日历
-    var day = new Date().getDay();
-    var date = new Date().getDate();
-    if (day == 1) {
-      for (day; day <= day + 6; day++) {
-        this.globalData.dateArray.push(date + day - 1)
-      }
-    } else if (day == 7) {
-      for (day; day >= 1; day--) {
-        this.globalData.dateArray.push(date - day + 1)
-      }
-    } else {
-      for (day; day >= 1; day--) {
-        this.globalData.dateArray.push(date - day + 1)
-      }
-      day = new Date().getDay() - 1;
-      for (day; day < 6; day++) {
-        this.globalData.dateArray.push(date + day - 1)
-      }
-    }
-
     // 登录
     wx.login({
       success: res => {
@@ -50,7 +29,6 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
-    dateArray:[]
+    userInfo: null
   }
 })

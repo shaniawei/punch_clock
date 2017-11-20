@@ -5,8 +5,12 @@
     <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
-  <button type='primary' class="add-clock clock_btn" size="default" bindtap="joinProject">加入一个好玩的打卡</button>
-  <button type='default' class="create-clock clock_btn" bindtap="test" bindtap="createProject">+ 创建一个新的打卡{{test}}</button>
+  <navigator url="../find/find" open-type="switchTab" hover-class="none">
+    <button type='primary' class="add-clock clock_btn" size="default">加入一个好玩的打卡</button>
+  </navigator>
+  <navigator url='../create_clock/create_clock' open-type='navigateTo' hover-class="none">
+    <button type='default' class="create-clock clock_btn" bindtap="test">+ 创建一个新的打卡{{test}}</button>
+  </navigator>
   <view class="managebyme clock_project">
     <text>我管理的打卡项目</text>
     <!--无管理项目  -->
@@ -44,27 +48,29 @@
       暂无打卡项目哦~
     </view>
     <!--有参加项目  -->
-    <view bindtap="clockPage">
-      <view class="content-yes">
-        <image src="" class="projectImage"></image>
-        <view class="projectInfo">
-          <text class="title">健身运动</text>
-          <view class="groupMaster">
-            <image class="masterImage" src=""></image>
-            <text class="masterName">美美</text>
+    <navigator url='../clock/clock' open-type='navigateTo' hover-class="none">
+      <view>
+        <view class="content-yes">
+          <image src="" class="projectImage"></image>
+          <view class="projectInfo">
+            <text class="title">健身运动</text>
+            <view class="groupMaster">
+              <image class="masterImage" src=""></image>
+              <text class="masterName">美美</text>
+            </view>
+            <view class="timeAndNumber">
+              <image src="../../resources/images/clock_icon.png"></image>
+              <text class="time">17:00</text>
+              <image src="../../resources/images/young_icon.png" style="margin-left:22rpx;"></image>
+              <text class="number">0</text>
+              <text>人已打卡</text>
+            </view>
           </view>
-          <view class="timeAndNumber">
-            <image src="../../resources/images/clock_icon.png"></image>
-            <text class="time">17:00</text>
-            <image src="../../resources/images/young_icon.png" style="margin-left:22rpx;"></image>
-            <text class="number">0</text>
-            <text>人已打卡</text>
+          <view class="project_clock_btn">
+            <button type="primary"  size="mini">打卡</button>
           </view>
-        </view>
-        <view class="project_clock_btn">
-          <button type="primary"  size="mini">打卡</button>
         </view>
       </view>
-    </view>
+    </navigator>
   </view>
 </view>

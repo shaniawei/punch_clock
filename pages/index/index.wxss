@@ -92,7 +92,7 @@
 }
 
 .main-clock .timeAndNumber  text{
-  vertical-align: middle
+  vertical-align: middle;
 }
 
 .project_clock_btn{
