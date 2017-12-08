@@ -17,6 +17,9 @@
     <view class="content-no">
       暂无打卡项目哦~
     </view>
+    <view>
+      <a href="http://www.baidu.com">百度</a>
+    </view>
     <!--有管理项目  -->
     <view wx:if="{{ hasClockProject }}">
       <view class="content-yes">

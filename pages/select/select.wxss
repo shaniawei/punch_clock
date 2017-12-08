@@ -1,0 +1,24 @@
+.con{
+  padding: 20rpx;
+}
+.con .type{
+  margin-bottom: 30rpx;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20rpx;
+}
+.con .item{
+  margin-left: 20rpx;
+}
+.con .item .select-group {
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+}
+.con .item .select-group label{
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+.apply-btn{
+  width: 60%;
+  margin-bottom: 30rpx;
+}

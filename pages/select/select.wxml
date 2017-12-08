@@ -1,0 +1,31 @@
+<view class='main-select'>
+  <view class='con'>
+    <view class='type'>
+      单选题
+    </view>
+    <view class='item' wx:for='{{sc}}'>
+      <text>{{index+1}}.</text>
+      <text>{{item.question}}</text>
+      <radio-group class="radio-group select-group" bindchange="radioChange" id='{{item.id}}'>
+        <label class="radio" wx:for="{{item.select}}">
+          <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class='con'>
+    <view class='type'>
+      多选题
+    </view>
+    <view class='item' wx:for='{{mcq}}'>
+      <text>{{index+1}}.</text>
+      <text>{{item.question}}</text>
+      <checkbox-group bindchange="checkboxChange" class='select-group'id='{{item.id}}'>
+        <label class="checkbox" wx:for="{{item.select}}">
+          <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+</view>
+<button type='primary' class='apply-btn' bindtap='applyBtn'>提交</button>
