@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/test/test",
     "pages/select/select",
     
-    "pages/index/index",
+    
     "pages/clock/clock",
     "pages/create_clock/create_clock",
     "pages/about_me/about_me",

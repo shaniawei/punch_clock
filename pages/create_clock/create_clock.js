@@ -1,9 +1,10 @@
 // create_clock.js
-
+const app = getApp()
 const year=new Date().getFullYear();
-const month=new Date().getMonth();
+const month=new Date().getMonth()+1;
 const date=new Date().getDate();
-
+const url=app.globalData.url
+const interval=1000
 Page({
 
   /**
@@ -15,28 +16,28 @@ Page({
     startTime:"08:00",
     endTime:"10:00",
     startDate:year+"-"+month+"-"+date,
-    endDate: year + "-" + month + "-" + parseInt(date+1)
+    endDate: year + "-" + month + "-" + parseInt(date+1),
+    isShowToast:false,
+    toastTips:"",
+    isNameFocus:true,
+    isDescFocus:false,
+    isTimeReady:false,
+    isDateReady:false
   },
   //打卡时间 打卡项目持续时间判断
-  radioChange:function(e){
-    if(e.detail.value==1){
-      this.setData({
-        isLimitTime:false
-      })
-    } else if (e.detail.value == 0){
-      this.setData({
-        isLimitTime: true
-      })
-    }
-    if (e.detail.value == 3) {
-      this.setData({
-        isLimitDate: false
-      })
-    } else if (e.detail.value == 2) {
-      this.setData({
-        isLimitDate: true
-      })
-    }
+  timeRadioChange:function(e){
+    var isLimitTime = e.detail.value == 1?false:true
+    this.setData({
+      isLimitTime: isLimitTime
+    })
+    this.data.isTimeReady = true
+  },
+  dateRadioChange:function(e){
+    var isLimitDate = e.detail.value == 3?false:true
+    this.setData({
+      isLimitDate: isLimitDate
+    })
+    this.data.isDateReady = true
   },
   //日期选择器
   bindDateChange: function (e) {
@@ -66,11 +67,85 @@ Page({
     }
     
   },
+  onNameBlur:function(e){
+    this.onTextBlur(e.detail.value, 'name', '名字不能为空')
+  },
+  onDescBlur: function (e) {
+    this.onTextBlur(e.detail.value,'desc','简介不能为空')
+  },
+  onTextBlur: function (value,key,tips) {
+    var that = this
+    if (!value) {
+      that.toast(tips)
+      that.setData({
+        isNameFocus: true
+      })
+      return
+    }
+    var data={}
+    data[key]=value
+    that.setData(data)
+  },
+  create:function(){
+    console.log("create")
+    var data=this.data
+    var userInfo=app.globalData.userInfo
+    var req={}
+    if(!data.isTimeReady){
+      that.toast("打卡时间不能为空")
+      return
+    }
+    if(!data.isDateReady){
+      that.toast("打卡日期不能为空")
+      return
+    }
+    if(data.isLimitTime){
+      req.startTime="00:00"
+      req.endTime="23:59"
+    }else{
+      req.startTime=data.startTime
+      req.endTime = data.endTime
+    }
+    if(data.isLimitDate){
+      req.startDate = `${year}-${month}-${date}`
+      req.endDate="2020-12-25"
+    }else{
+      req.startDate=data.startDate
+      req.endDate=data.endDate
+    }
+    req.name=data.name
+    req.desc=data.desc
+    req.username = userInfo.nickName
+    req.userImg = userInfo.avatarUrl
+    console.log(req)
+    wx.request({
+      url: `${url}/create`,
+      method: 'POST',
+      data: req,
+      success: function (data) {
+        console.log('CREATE SUCCESS',data)
+        wx.navigateTo({
+          url: '../index/index'
+        })
+      }
+    })
+  },
+  toast:function(tips){
+    this.setData({
+      isShowToast: true,
+      toastTips: tips
+    })
+    setTimeout(function () {
+      that.setData({
+        isShowToast: false
+      })
+    }, interval)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**

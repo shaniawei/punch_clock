@@ -14,32 +14,28 @@
   <view class="managebyme clock_project">
     <text>我管理的打卡项目</text>
     <!--无管理项目  -->
-    <view class="content-no">
+    <view class="content-no" wx:if="{{ownerClock.length<=0}}">
       暂无打卡项目哦~
     </view>
-    <view>
-      <a href="http://www.baidu.com">百度</a>
-    </view>
     <!--有管理项目  -->
-    <view wx:if="{{ hasClockProject }}">
-      <view class="content-yes">
-        <image src="" class="projectImage"></image>
+    <view wx:else>
+      <view class="content-yes" wx:for="{{ownerClock}}">
+        <image src="item.img||'../../resources/images/pkq.png'" class="projectImage"></image>
         <view class="projectInfo">
-          <text class="title">健身运动</text>
+          <text class="title">{{item.name}}</text>
           <view class="groupMaster">
-            <image class="masterImage" src=""></image>
-            <text class="masterName">美美</text>
+            <image class="masterImage" src="{{item.userImg}}"></image>
+            <text class="masterName">{{item.username}}</text>
           </view>
           <view class="timeAndNumber">
             <image src="../../resources/images/clock_icon.png"></image>
-            <text class="time">17:00</text>
+            <text class="time">{{item.startTime}}</text>
             <image src="../../resources/images/young_icon.png" style="margin-left:22rpx;"></image>
-            <text class="number">0</text>
-            <text>人已打卡</text>
+            <text>{{item.desc}}</text>
           </view>
         </view>
         <view class="project_clock_btn">
-          <button type="primary"  size="mini">打卡</button>
+          <button type="primary"  size="mini">{{clockStatus[item.clockStatus]}}</button>
         </view>
       </view>
     </view>
@@ -47,30 +43,29 @@
   <view class="managebyme clock_project">
     <text>我参加的打卡项目</text>
     <!--无参加项目  -->
-    <view class="content-no" wx:if="{{ noClockProject }}">
+    <view class="content-no" wx:if="{{ onClock.length<=0 }}">
       暂无打卡项目哦~
     </view>
     <!--有参加项目  -->
     <navigator url='../clock/clock' open-type='navigateTo' hover-class="none">
       <view>
-        <view class="content-yes">
-          <image src="" class="projectImage"></image>
-          <view class="projectInfo">
-            <text class="title">健身运动</text>
-            <view class="groupMaster">
-              <image class="masterImage" src=""></image>
-              <text class="masterName">美美</text>
-            </view>
-            <view class="timeAndNumber">
-              <image src="../../resources/images/clock_icon.png"></image>
-              <text class="time">17:00</text>
-              <image src="../../resources/images/young_icon.png" style="margin-left:22rpx;"></image>
-              <text class="number">0</text>
-              <text>人已打卡</text>
-            </view>
+        <view class="content-yes" wx:for="{{onClock}}">
+        <image src="item.img||'../../resources/images/pkq.png'" class="projectImage"></image>
+        <view class="projectInfo">
+          <text class="title">{{item.name}}</text>
+          <view class="groupMaster">
+            <image class="masterImage" src="{{item.userImg}}"></image>
+            <text class="masterName">{{item.username}}</text>
+          </view>
+          <view class="timeAndNumber">
+            <image src="../../resources/images/clock_icon.png"></image>
+            <text class="time">{{item.startTime}}</text>
+            <image src="../../resources/images/young_icon.png" style="margin-left:22rpx;"></image>
+            <text>{{item.desc}}</text>
+          </view>
           </view>
           <view class="project_clock_btn">
-            <button type="primary"  size="mini">打卡</button>
+            <button type="primary"  size="mini">{{onClock[item.clockStatus]}}</button>
           </view>
         </view>
       </view>
