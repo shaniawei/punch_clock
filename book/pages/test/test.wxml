@@ -1,0 +1,3 @@
+<view>
+  <image class='openbtn' src='../../resources/small.jpg' bindtap='openfile'></image>
+</view>

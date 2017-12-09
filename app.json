@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/test/test",
+    "pages/select/select",
+    
     "pages/index/index",
     "pages/clock/clock",
-    
     "pages/create_clock/create_clock",
     "pages/about_me/about_me",
-    
     "pages/find/find",
     "pages/diary/diary"
   ],
@@ -14,7 +15,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "打卡",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":true
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "borderStyle": "white",
@@ -41,5 +42,5 @@
       }
     ]
   },
-  "debug":true
+  "debug": true
 }
