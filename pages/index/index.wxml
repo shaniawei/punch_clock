@@ -1,74 +1,24 @@
 <!--index.wxml-->
 
+<!--引入模板  -->
+<import src="../../resources/module.wxml"/>
+
 <view class="main-clock">
+
   <view class="head">
     <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
+
   <navigator url="../find/find" open-type="switchTab" hover-class="none">
     <button type='primary' class="add-clock clock_btn" size="default">加入一个好玩的打卡</button>
   </navigator>
+
   <navigator url='../create_clock/create_clock' open-type='navigateTo' hover-class="none">
     <button type='default' class="create-clock clock_btn" bindtap="test">+ 创建一个新的打卡{{test}}</button>
   </navigator>
-  <view class="managebyme clock_project">
-    <text>我管理的打卡项目</text>
-    <!--无管理项目  -->
-    <view class="content-no" wx:if="{{ownerClock.length<=0}}">
-      暂无打卡项目哦~
-    </view>
-    <!--有管理项目  -->
-    <view wx:else>
-      <view class="content-yes" wx:for="{{ownerClock}}">
-        <image src="item.img||'../../resources/images/pkq.png'" class="projectImage"></image>
-        <view class="projectInfo">
-          <text class="title">{{item.name}}</text>
-          <view class="groupMaster">
-            <image class="masterImage" src="{{item.userImg}}"></image>
-            <text class="masterName">{{item.username}}</text>
-          </view>
-          <view class="timeAndNumber">
-            <image src="../../resources/images/clock_icon.png"></image>
-            <text class="time">{{item.startTime}}</text>
-            <image src="../../resources/images/young_icon.png" style="margin-left:22rpx;"></image>
-            <text>{{item.desc}}</text>
-          </view>
-        </view>
-        <view class="project_clock_btn">
-          <button type="primary"  size="mini">{{clockStatus[item.clockStatus]}}</button>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="managebyme clock_project">
-    <text>我参加的打卡项目</text>
-    <!--无参加项目  -->
-    <view class="content-no" wx:if="{{ onClock.length<=0 }}">
-      暂无打卡项目哦~
-    </view>
-    <!--有参加项目  -->
-    <navigator url='../clock/clock' open-type='navigateTo' hover-class="none">
-      <view>
-        <view class="content-yes" wx:for="{{onClock}}">
-        <image src="item.img||'../../resources/images/pkq.png'" class="projectImage"></image>
-        <view class="projectInfo">
-          <text class="title">{{item.name}}</text>
-          <view class="groupMaster">
-            <image class="masterImage" src="{{item.userImg}}"></image>
-            <text class="masterName">{{item.username}}</text>
-          </view>
-          <view class="timeAndNumber">
-            <image src="../../resources/images/clock_icon.png"></image>
-            <text class="time">{{item.startTime}}</text>
-            <image src="../../resources/images/young_icon.png" style="margin-left:22rpx;"></image>
-            <text>{{item.desc}}</text>
-          </view>
-          </view>
-          <view class="project_clock_btn">
-            <button type="primary"  size="mini">{{onClock[item.clockStatus]}}</button>
-          </view>
-        </view>
-      </view>
-    </navigator>
-  </view>
+
+  <template is="clock_project_module" data="{{title: '我管理的打卡项目',ClockType:ownerClock,clockStatus:clockStatus}}"/>
+  <template is="clock_project_module" data="{{title: '我参加的打卡项目',ClockType:onClock,clockStatus:clockStatus}}"/>
+  
 </view>

@@ -1,4 +1,28 @@
 /* clock.wxss */
+ .clockInfoM{
+  background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510724028448&di=c0c5f7354ff334fe2935e088cbf79b05&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fa044ad345982b2b704879d2c3badcbef76099b3a.jpg') no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 350rpx;
+  color: #fff;
+  text-align: center;
+}
+
+ .clockInfoM .mask{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  padding: 22rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+ .clockInfoM .mask .clock_status{
+   font-size: 26rpx;
+   margin-top: 18rpx;
+ }
 .m-clock-times{
   margin: 40rpx 0 0 24rpx;
 }
