@@ -1,0 +1,11 @@
+.bookItem{
+  margin-bottom: 40rpx;
+  margin-right: 40rpx;
+  text-align: center;
+  display: inline-block;
+}
+image{
+  width: 300rpx;
+  height: 400rpx;
+  display: block;
+}
