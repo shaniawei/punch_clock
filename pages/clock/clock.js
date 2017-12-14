@@ -207,10 +207,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    return {
-      title: '打卡啦',
-      desc: '记得打卡哟',
-      path: 'pages/clock/clock'
-    };
+  
   }
 })

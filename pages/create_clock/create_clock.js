@@ -4,7 +4,7 @@ const year=new Date().getFullYear();
 const month=new Date().getMonth()+1;
 const date=new Date().getDate();
 const url=app.globalData.url
-const interval=1000
+const interval=10000
 Page({
 
   /**
@@ -24,7 +24,7 @@ Page({
     isTimeReady:false,
     isDateReady:false
   },
-  //打卡时间 打卡项目持续时间判断
+  //打卡时间 打卡项目持续时间段判断
   timeRadioChange:function(e){
     var isLimitTime = e.detail.value == 1?false:true
     this.setData({
@@ -32,6 +32,7 @@ Page({
     })
     this.data.isTimeReady = true
   },
+  //打卡周期 打卡项目持续周期判断
   dateRadioChange:function(e){
     var isLimitDate = e.detail.value == 3?false:true
     this.setData({
@@ -88,6 +89,7 @@ Page({
   },
   create:function(){
     console.log("create")
+    var that=this;
     var data=this.data
     var userInfo=app.globalData.userInfo
     var req={}
@@ -131,6 +133,7 @@ Page({
     })
   },
   toast:function(tips){
+    var that=this;
     this.setData({
       isShowToast: true,
       toastTips: tips

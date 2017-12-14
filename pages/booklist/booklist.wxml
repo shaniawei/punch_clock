@@ -1,0 +1,4 @@
+<view class='bookItem' wx:for='{{ booklist }}'>
+    <image src='{{item.img}}'></image>
+    <text>{{item.bookName}}</text>
+</view>

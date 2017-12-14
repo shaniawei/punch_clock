@@ -1,6 +1,16 @@
 //app.js
 App({
   onLaunch: function () {
+    //引入SDK
+    require('./sdk-v1.1.1.js')
+    // 初始化 SDK
+    let clientID = '07109ed66fb97d68e879'
+    wx.BaaS.init(clientID)
+
+
+
+
+
     // 登录
     wx.login({
       success: res => {
@@ -16,7 +26,6 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
-              console.log('userInfo:',res)
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {

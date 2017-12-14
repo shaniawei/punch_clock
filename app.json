@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/booklist/booklist",
+    "pages/test/test",
     "pages/index/index",
     "pages/clock/clock",
     "pages/create_clock/create_clock",
@@ -11,8 +13,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "打卡",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "borderStyle": "white",

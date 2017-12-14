@@ -8,7 +8,6 @@
     <!--有管理项目  -->
     <view wx:else>
       <view class="content-yes" wx:for="{{ClockType}}">
-        <navigator url='../clock/clock' open-type='navigateTo' hover-class="none">
           <image src="item.img||'../../resources/images/pkq.png'" class="projectImage"></image>
           <view class="projectInfo">
             <text class="title">{{item.name}}</text>
@@ -26,7 +25,6 @@
           <view class="project_clock_btn">
             <button type="primary"  size="mini">{{clockStatus[item.clockStatus]}}</button>
           </view>
-        </navigator>
       </view>
     </view>
   </view>
