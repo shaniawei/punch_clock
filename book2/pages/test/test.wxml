@@ -1,8 +1,0 @@
-<import src="../../wxParser/index.wxml"/>
-<view class='title'>第{{ detail.index }}章</view>
-<view class='title'>{{ detail.title }}</view>
-<view class="wxParser detail">
-  <template is="wxParser" data="{{wxParserData:richText.nodes}}"/>
-</view>
-<button type='primary' size='mini' data-index='{{ detail.index-1 }}' bindtap='getPreChapter'>上一章</button>
-<button type='primary' size='mini' data-index='{{ detail.index-1 }}' bindtap='getNextChapter'>下一章</button>

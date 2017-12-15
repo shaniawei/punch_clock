@@ -1,7 +1,0 @@
-.detail{
-  padding: 0 20rpx;
-}
-.title{
-  text-align: center;
-  margin-bottom: 40rpx;
-}
