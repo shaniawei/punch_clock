@@ -63,3 +63,16 @@ page {
   margin: 30rpx auto 60rpx;
   border-radius: 8rpx;
 }
+.m-create .tips{
+  position: absolute;
+  top:100px;
+  left: 100px;
+  margin: 0 auto;
+  border:1px solid red;
+  background: green;
+  border-radius: 3px;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}

@@ -1,5 +1,5 @@
 <!--create_clock.wxml-->
-<view class="m-create" wx:if="!isShowToast">
+<view class="m-create">
   <view class="item">
     <view class="project_name">
       <image src="../../resources/images/pencil98.png"></image>
@@ -85,7 +85,8 @@
   <view class="m-create-btn" bindtap="create">
     创建打卡
   </view>
-</view>
-<view wx:else>
+  <view wx:if="{{isShowToast}}" class='tips'>
   {{toastTips}}
 </view>
+</view>
+

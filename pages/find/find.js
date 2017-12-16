@@ -1,18 +1,32 @@
 // find.js
+var app=getApp()
+var url=app.globalData.url
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    clockInfo:[],
+    clockNumMap:{}
   },
-
+  join(e){
+    var tar=e.target
+    var dataset=tar.dataset
+    wx.request({
+      url: `${url}/clockInfo`,
+      method:'POST',
+      success:function(err,data){
+        
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**

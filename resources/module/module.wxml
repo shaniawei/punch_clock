@@ -1,0 +1,33 @@
+<template name="clock_project_module">
+  <view class="managebyme clock_project">
+    <text>{{ title }}</text>
+    <!--无管理项目  -->
+    <view class="content-no" wx:if="{{ClockType.length<=0}}">
+      暂无打卡项目哦~
+    </view>
+    <!--有管理项目  -->
+    <view wx:else>
+      <view class="content-yes" wx:for="{{ClockType}}">
+          <image src="{{item.img}}" class="projectImage"></image>
+          <view class="projectInfo">
+            <text class="title">{{item.name}}</text>
+            <view class="groupMaster">
+              <image class="masterImage" src="{{item.userImg}}"></image>
+              <text class="masterName">{{item.username}}</text>
+            </view>
+            <view class="timeAndNumber">
+              <image src="../../resources/images/clock_icon.png"></image>
+              <text class="time">{{item.startTime}}</text>
+              <image src="../../resources/images/young_icon.png" style="margin-left:22rpx;"></image>
+              <text>{{item.desc}}</text>
+            </view>
+          </view>
+          <view class="project_clock_btn">
+            <button type="primary"  size="mini" bindtap='clock' data-id='{{item._id}}' data-status='{{item.clockStatus}}'>
+              {{clockStatus[item.clockStatus]}}
+            </button>
+          </view>
+      </view>
+    </view>
+  </view>
+</template>

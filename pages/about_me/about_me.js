@@ -1,5 +1,6 @@
 // about_me.js
 var app=getApp();
+var url=app.globalData.url
 Page({
 
   /**
@@ -26,12 +27,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-      console.log(app.globalData.userInfo)
+      that.getDailyInfo()
     } else {
       wx.getUserInfo({
         success: res => {
@@ -40,12 +42,22 @@ Page({
             userInfo: res.userInfo,
             hasUserInfo: true
           })
-          console.log(app.globalData.userInfo)
+          that.getDailyInfo()
         }
       })
     }
   },
+  getDailyInfo(){
+    var that=this
+    wx.request({
+      url: `${url}/dailyInfo`,
+      method:'POST',
 
+      success:function(res){
+
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

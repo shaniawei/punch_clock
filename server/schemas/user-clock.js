@@ -2,7 +2,6 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var ClockModel = require("../models/clock");
-var UserModel = require("../models/user");
 
 var UserClockSchema=new Schema({
   clockId:{

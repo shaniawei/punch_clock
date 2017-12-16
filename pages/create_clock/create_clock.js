@@ -4,7 +4,7 @@ const year=new Date().getFullYear();
 const month=new Date().getMonth()+1;
 const date=new Date().getDate();
 const url=app.globalData.url
-const interval=10000
+const interval=1000
 Page({
 
   /**
@@ -126,19 +126,24 @@ Page({
       data: req,
       success: function (data) {
         console.log('CREATE SUCCESS',data)
-        wx.navigateTo({
-          url: '../index/index'
+        // wx.navigateTo({           //这个跳转方式是跳转到应用内的页面
+        //   url: '../index/index'
+        // })
+        wx.switchTab({
+          url: '../index/index',
         })
       }
     })
   },
   toast:function(tips){
     var that=this;
+    var timer
     this.setData({
       isShowToast: true,
       toastTips: tips
     })
-    setTimeout(function () {
+    clearTimeout(timer)
+    timer=setTimeout(function () {
       that.setData({
         isShowToast: false
       })
@@ -147,8 +152,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (options) {       //options里面存放的是QUERY信息
+    
   },
 
   /**

@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 const url =app.globalData.url
+var isLoaded=false
 Page({
   data: {
     userInfo: {},
@@ -20,13 +21,17 @@ Page({
   },
   //获取用户信息
   onLoad: function () {
+    console.log('22222222222')
+    isLoaded=true
     if (app.globalData.userInfo) {
+      console.log(555555555555)
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
       this.getClockInfo()
     }  else {
+      console.log(66666666)
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
@@ -38,6 +43,14 @@ Page({
         }
       })
     }
+  },
+  onShow(){
+      if(!isLoaded){
+        this.getClockInfo()
+      }
+  },
+  onHide(){
+      isLoaded=false       //下一次进入首页要重新拉起用户信息,因为有可能是从create_clock来的，这个时候index页面是不会重新onLoad的
   },
   getClockInfo(){
     var that = this
@@ -58,5 +71,18 @@ Page({
         })
       }
     })
+  },
+  clock(e){
+    var tar=e.target
+    var data=tar.dataset
+    console.log(555555555555,data,tar)
+    if(data.status==2){   //可以跳转至打卡页面
+      wx.navigateTo({
+        url:`../clock/clock?id=${data.id}`
+      })
+    }
+  },
+  test(){
+
   }
 })

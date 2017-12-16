@@ -1,18 +1,20 @@
 var express = require("express");
 var ClockModel = require("../models/clock");
 var UserClockModel = require('../models/user-clock')
-var UserModel = require('../models/user')
 var utils = require('../utils/utils')
 var router = express.Router();
 
+var PORT = process.env.PORT || 8999
+var host="127.0.0.1"
+
 router.post('/baseInfo', function (req, res) {   //获取一个用户的打卡信息
   var body = req.body
+  console.log('session:',req.session.user)
   UserClockModel.find({ username: body.username, userImg: body.userImg }).populate(["clockId"]).exec(function (err, items) {
     if (err) {
       console.log('ERROR')
       return
     }
-    console.log("baseInfo", items)
     items = items || []
     var ownerClock = []      //拥有的打卡
     var onClock = []         //参与的打卡
@@ -25,7 +27,6 @@ router.post('/baseInfo', function (req, res) {   //获取一个用户的打卡�
       var _day = now.getDate()
       var startDate = new Date(`${item.clockId.startDate} ${item.clockId.startTime}`)
       var endDate = new Date(`${item.clockId.endDate} ${item.clockId.endTime}`)
-      console.log(+now,+startDate,+endDate)
       if (+now < +startDate) {
         item.clockId._doc.clockStatus = 1
       } else if (+now < +endDate) {
@@ -35,7 +36,7 @@ router.post('/baseInfo', function (req, res) {   //获取一个用户的打卡�
       }
       if (item.signDate && item.signDate.length && item.clockId._doc.clockStatus == 2) {
         var len = item.singDate.length
-        var last = new Date(+item.signDate[0])
+        var last = new Date(+item.signDate[len-1])
         var year = last.getFullYear()
         var month = last.getMonth() + 1
         var day = last.getDate()
@@ -66,18 +67,30 @@ router.post('/baseInfo', function (req, res) {   //获取一个用户的打卡�
 
     //   })
     // }
-    console.log(ownerClock, 33333333333333)
     res.json({ onClock: onClock, ownerClock: ownerClock, errCode: 0, msg: 'ok' })
   })
 })
 
+
 router.post('/create', function (req, res) {    //创建一个新的打卡
   var body = req.body
+  var random = Math.random()
+  var num
+  if (random < 0.25) {
+    num = 0
+  } else if (random < 0.5) {
+    num = 1
+  } else if (random < 0.75) {
+    num = 2
+  } else {
+    num = 3
+  }
+  var img = `//${host}:${port}/images/pkq${num}.jpg`
   console.log("REQ:", req.body)
   var clock = new ClockModel({
     username: body.username,
     userImg: body.userImg,
-    img: '',
+    img: img,
     name: body.name,              //打卡名称
     startTime: body.startTime,         //每天打卡的开始时间
     endTime: body.endTime,          //每天打卡的结束时间
@@ -87,8 +100,6 @@ router.post('/create', function (req, res) {    //创建一个新的打卡
     createDate: utils.formateDate(+new Date())              //打卡项目创建日期
   })
   clock.save(function (err) {
-    console.log("CLOCK:", clock)
-    console.log('create new clock success')
     var userClock = new UserClockModel({
       clockId: clock._id,
       username: body.username,
@@ -96,7 +107,6 @@ router.post('/create', function (req, res) {    //创建一个新的打卡
       isOwner: true
     })
     userClock.save(function (err) {
-      console.log("userclock", userClock)
       res.json({ errCode: 0, msg: 'ok', clock: clock, userClock: userClock })
     })
   })
