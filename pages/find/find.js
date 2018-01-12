@@ -15,10 +15,25 @@ Page({
     var tar=e.target
     var dataset=tar.dataset
     wx.request({
-      url: `${url}/clockInfo`,
+      url: `${url}/joinClock`,
       method:'POST',
+      data: {
+        username: userInfo.nickName,
+        userImg: userInfo.avatarUrl,
+        clockId:dataset.id
+      },
       success:function(err,data){
-        
+        wx.switchTab({
+          url: '../index/index',
+        })
+      },
+      fail:function(){
+        wx.showToast({
+          title: '加入打卡失败',
+          icon: 'fail',
+          duration: 1000,
+          mask: true
+        })
       }
     })
   },
@@ -26,7 +41,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this
+    var userInfo=app.globalData.userInfo
+    wx.request({
+      url: `${url}/clockInfo`,
+      method: 'POST',
+      data: {
+        username: userInfo.nickName,
+        userImg: userInfo.avatarUrl
+      },
+      success: function (data) {
+        console.log("ClockInfo", data)
+        var data = data.data
+        that.setData({
+          clockInfo: data.clockInfo,
+          clockNumMap: data.clockNumMap
+        })
+      }
+    })
   },
 
   /**

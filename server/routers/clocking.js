@@ -19,6 +19,22 @@ router.post('/joinClock', function (req, res) {   //打卡，如果用户是第�
   })
 })
 
+router.get('/singleClockInfo',function(req,res){
+  var body=req.body
+  UserClockModel.find({
+    clockId: body.clockId, 
+    username: body.username,
+    userImg: body.userImg}).populate('clockId').exec(function(err,data){
+      if(err){
+        console.log(err)
+        res.json({ errCode: -1, msg: 'ok' })
+        return
+      }
+      data.signDate=data.signDate||[]
+      res.json({ errCode: 0, msg: 'ok' ,clockInfo:data})
+    })
+})
+
 router.post('/clocking', function (req, res) {   //打卡
   var body = req.body
   var curr = +new Date()

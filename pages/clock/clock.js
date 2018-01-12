@@ -2,7 +2,10 @@
 'use strict';
 let choose_year = null,
   choose_month = null;
+
 var app=getApp();
+const url = app.globalData.url
+
 Page({
 
   /**
@@ -10,7 +13,8 @@ Page({
    */
   data: {
     hasEmptyGrid: false,
-    showPicker: false
+    showPicker: false,
+    clockInfo:''
   },
   showRule:function(){
     wx.showModal({
@@ -23,7 +27,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
+    console.log("OPTIONS",options)
     const date = new Date();
     const cur_year = date.getFullYear();
     const cur_month = date.getMonth() + 1;
@@ -36,6 +41,27 @@ Page({
       weeks_ch
     });
     this.tapDayItem();
+    this.getSingleClockInfo(options.id)
+  },
+  getSingleClockInfo(clockId) {
+    var that = this
+    var userInfo = app.globalData.userInfo
+    wx.request({
+      url: `${url}/singleClockInfo`,
+      method: 'GET',
+      data: {
+        username: userInfo.nickName,
+        userImg: userInfo.avatarUrl,
+        clockId:clockId
+      },
+      success: function (data) {
+        console.log("SingleClockInfo", data)
+        var data = data.data
+        that.setData({
+          clockInfo: data
+        })
+      }
+    })
   },
   tapDayItem() {
     const idx = new Date().getDate()-1;

@@ -20,5 +20,4 @@
 
   <template is="clock_project_module" data="{{title: '我管理的打卡项目',ClockType:ownerClock,clockStatus:clockStatus}}"/>
   <template is="clock_project_module" data="{{title: '我参加的打卡项目',ClockType:onClock,clockStatus:clockStatus}}"/>
-  <button bindtap="test">ssssssssssssss</button>
 </view>
