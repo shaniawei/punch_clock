@@ -13,6 +13,8 @@ Page({
   data: {
     isLimitTime:true,
     isLimitDate:true,
+    name:"",
+    desc:"",
     startTime:"08:00",
     endTime:"10:00",
     startDate:year+"-"+month+"-"+date,
@@ -69,10 +71,15 @@ Page({
     
   },
   onNameBlur:function(e){
-    this.onTextBlur(e.detail.value, 'name', '名字不能为空')
+    this.setData({
+      name:e.detail.value
+    })
   },
   onDescBlur: function (e) {
-    this.onTextBlur(e.detail.value,'desc','简介不能为空')
+    this.setData({
+      desc: e.detail.value
+    })
+    // this.onTextBlur(e.detail.value,'desc','简介不能为空')
   },
   onTextBlur: function (value,key,tips) {
     var that = this
@@ -93,6 +100,14 @@ Page({
     var data=this.data
     var userInfo=app.globalData.userInfo
     var req={}
+    if(!data.name){
+      that.toast("打卡项目名称不能为空")
+      return
+    }
+    if(!data.desc){
+      that.toast('打卡项目描述不能为空')
+      return
+    }
     if(!data.isTimeReady){
       that.toast("打卡时间不能为空")
       return

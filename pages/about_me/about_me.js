@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{}
+    dailyInfo:"",
+    userInfo:""
   },
   //删除日记
   deleteDiary: function () {
@@ -27,34 +28,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-      that.getDailyInfo()
-    } else {
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-          that.getDailyInfo()
-        }
-      })
-    }
+    this.setData({
+      userInfo:app.globalData.userInfo
+    })
+    this.getDailyInfo()
   },
-  getDailyInfo(){
-    var that=this
+  getDailyInfo: function () {
+    var that = this
+    var data = that.data
+    var userInfo = data.userInfo
     wx.request({
       url: `${url}/dailyInfo`,
-      method:'POST',
-
-      success:function(res){
-
+      method: 'POST',
+      data: {
+        username: userInfo.nickName,
+        userImg: userInfo.avatarUrl
+      },
+      success: function (data) {
+        var data = data.data
+        console.log('dailyInfo:', data.dailyInfo)
+        that.setData({
+          dailyInfo: data.dailyInfo
+        })
       }
     })
   },

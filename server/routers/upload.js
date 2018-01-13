@@ -7,7 +7,6 @@ router.post('/imgUpload', function (req, res) {   //图片上传
   var body = req.body
   var uploadPath ='uploadImg'
   var imgName = 'img'        //前端传来的图片的name
-  console.log('session:',req.session.user)
   dealMultipartFormData(req, imgName, uploadPath, function (fields, files, newName){
     var url = `/${uploadPath}/${newName}`
     console.log("imgUpload",url)

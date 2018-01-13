@@ -1,7 +1,7 @@
 {
   "name": "punch_clock",
   "version": "1.0.0",
-  "description": "",
+  "description": "1.两个预设的打卡：早起 跑步",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,5 +24,6 @@
     "express-session": "^1.15.6",
     "formidable": "^1.1.1",
     "mongoose": "^4.13.6"
-  }
+  },
+  "devDependencies": {}
 }

@@ -6,7 +6,7 @@
       <text>打卡项目名称</text>
     </view>
     <view class="txt">
-      <textarea value="{{name}}" bindblur='onNameBlur' focus="{{isNameFocus}}" placeholder="50字以内" auto-height maxlength="50"/>
+      <textarea value="{{name}}" bindinput='onNameBlur' placeholder="50字以内" auto-height maxlength="50"/>
     </view>
   </view>
   <view class="item">
@@ -15,7 +15,7 @@
       <text>打卡详细描述</text>
     </view>
     <view class="txt">
-      <textarea value='{{desc}}' bindblur='onDescBlur' focus="{{isDescFocus}}"  placeholder="请输入打卡详细内容，100字以内" auto-height maxlength="100"/>
+      <textarea value='{{desc}}' bindinput='onDescBlur'  placeholder="请输入打卡详细内容，100字以内" auto-height maxlength="100"/>
     </view>
   </view>
   <view class="item">

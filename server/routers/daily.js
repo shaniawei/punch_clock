@@ -5,7 +5,6 @@ var router = express.Router();
 
 router.post('/dailyInfo', function (req, res) {   //获取所有的打卡日记信息
   var body = req.body
-  console.log("dailyInfo,session",req.session)
   console.log("dailyInfo,cookie", req.cookie)
   console.log("dailyInfo,param", req.param)
   UserClockModel.find({ username: body.username , userImg: body.userImg }).populate(["clockId"]).exec(function (err, items) {

@@ -18,6 +18,7 @@ const formatNumber = n => {
 }
 
 function imgUpload(cb, options) {
+  options=options||{}
   wx.chooseImage({
     count: options.size||1, // 默认9
     success: function (res) {
