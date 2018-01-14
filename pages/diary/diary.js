@@ -1,4 +1,5 @@
 // diary.js
+
 var app = getApp();
 var url = app.globalData.url
 
@@ -9,7 +10,8 @@ Page({
    */
   data: {
     daily: '',
-    clockId: ''
+    clockId: '',
+    dailyImg:[]
   },
 
   /**
@@ -19,13 +21,12 @@ Page({
     console.log("Daily options:",options)
     var clockId = options.id
     this.setData({
-      clockId: clockId
+      clockId: clockId,
+      dailyImg:[]
     })
   },
 
-  clock: function () {
-
-  },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -46,7 +47,7 @@ Page({
     console.log("userinfo:",userInfo.nickName)
     if(!data.daily){
       wx.showToast({
-        title: '日记内容不能为空',
+        title: '日记不能为空',
         image:'../../resources/images/warning.jpg',
         duration: 1000,
         mask: true
@@ -69,7 +70,19 @@ Page({
       }
     })
   },
-
+  uploadImg: function (e) {
+    var that = this
+    var dailyImg = that.data.dailyImg
+    app.imgUpload(function (err, data) {
+      if (!err) {
+        console.log('uploadImgData', data)
+        dailyImg.push(data.url)
+        that.setData({
+          dailyImg: dailyImg
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

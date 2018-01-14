@@ -5,29 +5,33 @@ var router = express.Router();
 
 router.post('/clockInfo', function (req, res) {   //获取所有的打卡信息
   var body = req.body
-  UserClockModel.find({ username: { $ne: body.username }, userImg: {$ne:body.userImg }}).populate(["clockId"]).exec(function (err, items) {
+  console.log('body',body)
+  // var name ="Alair1"
+  // var img =""
+  // username: { $ne: name || body.username }, 
+  // userImg: { $ne: img || body.userImg }
+  UserClockModel.find({}).populate(["clockId"]).exec(function (err, items) {
     if (err) {
       console.log('ERROR')
       return
     }
-    console.log("clockInfo", items)
     items = items || []
     var clockInfo=[]
     var clockNumMap={}
     var _id
     items.forEach(function (item) {
-      // item.clockId._doc.clockStatus = 1
-      if(item.isOwner){
+      console.log(item,111111)
+      if(item.isOwner&&(item.username!==body.username||item.userImg!=body.userImg)){
         clockInfo.push(item)
        }
     })
+    console.log('clockInfo',clockInfo)
     clockInfo.forEach(clock=>{          //获得每个打卡项目的参与人数
       _id = clock.clockId._id
       items.forEach(item=>{
-        if(!item.isCounted&&item.clockId._id==_id){
+        if(item.clockId._id==_id){
           clockNumMap[_id]=clockNumMap[_id]||0
-          clockNumMap[_id]++   
-          item.isCounted=true       
+          clockNumMap[_id]++        
         }
       })
     })

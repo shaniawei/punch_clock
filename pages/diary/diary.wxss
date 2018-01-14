@@ -5,6 +5,9 @@ page{
 .m-diary{
   width: 100%;
 }
+.content{
+  margin-bottom: 10px;
+}
 .m-diary .content textarea{
   width: 100%;
   min-height: 400rpx;
@@ -17,4 +20,17 @@ page{
 .m-diary .m-diary-btn{
   width: 90%;
   margin: 30rpx auto;
+}
+.img{
+  width: 50px;
+  height: 40px;
+}
+.img_btn{
+  width: 50px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: #000;
+  border:1px solid #000;
 }

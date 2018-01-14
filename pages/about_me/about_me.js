@@ -11,15 +11,47 @@ Page({
     userInfo:""
   },
   //删除日记
-  deleteDiary: function () {
+  deleteDiary: function (e) {
+    var that=this
+    var dataset=e.target.dataset
     wx.showModal({
       title: '删除确认',
       content: '确定要删除该日志？删除后不可恢复',
       success: function (res) {
         if (res.confirm) {
           console.log('用户点击确定')
+          that.deleteDailyReq(dataset)
         } else if (res.cancel) {
           console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  deleteDailyReq:function(data){
+    console.log("deleteDaily:",data)
+    var that=this
+    var userInfo=that.data.userInfo
+    wx.request({
+      url: `${url}/deleteDaily`,
+      method:"POST",
+      data:{
+        index:data.childindex,
+        clockId:data.id,
+        username:userInfo.nickName,
+        userImg: userInfo.avatarUrl
+      },
+      success:function(){          //微信小程序会自动把加在元素上的属性名转化为小写
+        var parindex = data.parindex
+        // var dailyInfo = JSON.parse(JSON.stringify(that.data.dailyInfo))
+        var dailyInfo =that.data.dailyInfo
+        console.log(dailyInfo,2222222222)
+        var daily = dailyInfo[parindex]
+        if (daily){
+          daily.signDate.splice(data.childindex, 1)
+          console.log("dailyInfo",dailyInfo,1111111)
+          that.setData({
+            dailyInfo: dailyInfo
+          })
         }
       }
     })

@@ -101,19 +101,19 @@ Page({
     var userInfo=app.globalData.userInfo
     var req={}
     if(!data.name){
-      that.toast("打卡项目名称不能为空")
+      that.toast("名称不能为空")
       return
     }
     if(!data.desc){
-      that.toast('打卡项目描述不能为空')
+      that.toast('描述不能为空')
       return
     }
     if(!data.isTimeReady){
-      that.toast("打卡时间不能为空")
+      that.toast("时间不能为空")
       return
     }
     if(!data.isDateReady){
-      that.toast("打卡日期不能为空")
+      that.toast("日期不能为空")
       return
     }
     if(data.isLimitTime){
@@ -151,18 +151,12 @@ Page({
     })
   },
   toast:function(tips){
-    var that=this;
-    var timer
-    this.setData({
-      isShowToast: true,
-      toastTips: tips
+    wx.showToast({
+      title: tips,
+      image:'../../resources/images/warning.jpg',
+      duration:1000,
+      mask:true
     })
-    clearTimeout(timer)
-    timer=setTimeout(function () {
-      that.setData({
-        isShowToast: false
-      })
-    }, interval)
   },
   /**
    * 生命周期函数--监听页面加载

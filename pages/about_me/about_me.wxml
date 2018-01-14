@@ -24,7 +24,11 @@
                 <text>{{item.signDate.length}}</text>
                 <text>天</text>
               </view>
-              <image class="delete_diary_btn" src="../../resources/images/trash.png" bindtap="deleteDiary"></image>
+              <image class="delete_diary_btn" src="../../resources/images/trash.png" 
+                      data-childIndex="{{indexs}}"
+                      data-parIndex="{{index}}"
+                      data-id="{{item.clockId._id}}" 
+                      bindtap="deleteDiary"></image>
             </view>
             <view class="diary_txt">
               {{item.daily[indexs]}}
