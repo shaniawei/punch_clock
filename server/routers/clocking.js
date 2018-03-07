@@ -3,7 +3,7 @@ var ClockModel = require("../models/clock");
 var UserClockModel = require('../models/user-clock')
 var router = express.Router();
 
-router.post('/joinClock', function (req, res) {   //打卡，如果用户是第一次打开，那么是save，否则就是更新
+router.post('/joinClock', function (req, res) {   //加入某个打卡项目，find
   var body = req.body
   var UserClock = new UserClockModel({
     clockId: body.clockId,
@@ -19,7 +19,7 @@ router.post('/joinClock', function (req, res) {   //打卡，如果用户是第�
   })
 })
 
-router.get('/singleClockInfo',function(req,res){
+router.get('/singleClockInfo',function(req,res){   //获取当个打卡项目的信息，clock
   var body=req.body
   UserClockModel.find({
     clockId: body.clockId, 
@@ -35,7 +35,7 @@ router.get('/singleClockInfo',function(req,res){
     })
 })
 
-router.post('/clocking', function (req, res) {   //打卡
+router.post('/clocking', function (req, res) {   //打卡，diary
   var body = req.body
   var curr = +new Date()
   var currStr = "" + curr

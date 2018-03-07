@@ -7,7 +7,7 @@ var router = express.Router();
 var PORT = process.env.PORT || 8999
 var host="127.0.0.1"
 
-router.post('/baseInfo', function (req, res) {   //获取一个用户的打卡信息
+router.post('/baseInfo', function (req, res) {   //获取一个用户的打卡信息,index
   var body = req.body
   console.log('session:',req.session.user)
   UserClockModel.find({ username: body.username, userImg: body.userImg }).populate(["clockId"]).exec(function (err, items) {
@@ -72,7 +72,7 @@ router.post('/baseInfo', function (req, res) {   //获取一个用户的打卡�
 })
 
 
-router.post('/create', function (req, res) {    //创建一个新的打卡
+router.post('/create', function (req, res) {    //创建一个新的打卡,create_clock
   var body = req.body
   var random = Math.random()
   var num

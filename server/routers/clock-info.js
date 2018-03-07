@@ -3,7 +3,7 @@ var ClockModel = require("../models/clock");
 var UserClockModel = require('../models/user-clock')
 var router = express.Router();
 
-router.post('/clockInfo', function (req, res) {   //获取所有的打卡信息
+router.post('/clockInfo', function (req, res) {   //获取所有的打卡信息,find
   var body = req.body
   console.log('session,clockInfo',req.session.user)
   UserClockModel.find({ username: { $ne: body.username }, userImg: {$ne:body.userImg }}).populate(["clockId"]).exec(function (err, items) {

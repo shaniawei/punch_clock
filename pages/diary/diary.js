@@ -16,7 +16,7 @@ Page({
   },
 
   clock:function(){
-
+    
   },
 
   /**

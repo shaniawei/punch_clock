@@ -3,7 +3,7 @@ var ClockModel = require("../models/clock");
 var UserClockModel = require('../models/user-clock')
 var router = express.Router();
 
-router.post('/dailyInfo', function (req, res) {   //获取所有的打卡日记信息
+router.post('/dailyInfo', function (req, res) {   //获取所有的打卡日记信息,diary
   var body = req.body
   console.log("dailyInfo,session",req.session)
   console.log("dailyInfo,cookie", req.cookie)
