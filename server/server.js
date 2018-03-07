@@ -37,6 +37,8 @@ app.use('/test',function(req,res){
   res.end("1234")
 })
 
+
+
 var router=fs.readdirSync(path.join(__dirname,'routers'))
 router.forEach(path=>{
   app.use('/', require(`./routers/${path}`))

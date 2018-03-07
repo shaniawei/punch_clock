@@ -9,7 +9,6 @@ var host="127.0.0.1"
 
 router.post('/baseInfo', function (req, res) {   //获取一个用户的打卡信息,index
   var body = req.body
-  console.log('session:',req.session.user)
   UserClockModel.find({ username: body.username, userImg: body.userImg }).populate(["clockId"]).exec(function (err, items) {
     if (err) {
       console.log('ERROR')
@@ -27,28 +26,28 @@ router.post('/baseInfo', function (req, res) {   //获取一个用户的打卡�
       var _day = now.getDate()
       var startDate = new Date(`${item.clockId.startDate} ${item.clockId.startTime}`)
       var endDate = new Date(`${item.clockId.endDate} ${item.clockId.endTime}`)
-      if (+now < +startDate) {
+      if (+now < +startDate) {   //未开始
         item.clockId._doc.clockStatus = 1
-      } else if (+now < +endDate) {
+      } else if (+now < +endDate) {  //进行中
         item.clockId._doc.clockStatus = 2
-      } else {
+      } else {   //已结束
         item.clockId._doc.clockStatus = 3
       }
-      if (item.signDate && item.signDate.length && item.clockId._doc.clockStatus == 2) {
-        var len = item.singDate.length
-        var last = new Date(+item.signDate[len-1])
-        var year = last.getFullYear()
-        var month = last.getMonth() + 1
-        var day = last.getDate()
+      var start = +new Date(`${_year}-${_month}-${_day} ${item.clockId.startTime}`)     //今天的打卡开始时间
+      var end = +new Date(`${_year}-${_month}-${_day} ${item.clockId.endTime}`)         //今天的打卡结束时间
 
-        if (year == _year && month == _month && day == _day) {    //最后存的打卡日期是今天才来判断是否打卡
-          var start = +new Date(`${year}-${month}-${day} ${item.clockId.startTime}`)
-          var end = +new Date(`${year}-${month}-${day} ${item.clockId.endTime}`)
-          last = +last
-          if (last >= start && last <= end) {
-            item.clockId._doc.clockStatus = 4      //今天确实是在指定的时间段内打卡了
+      if (item.clockId._doc.clockStatus == 2){   //如果是进行中
+          if(+now<+start){   //今天未开始
+            item.clockId._doc.clockStatus=5
+          }else if(+now>+end){  //今天已结束
+            item.clockId._doc.clockStatus=6 
+          }else if (item.signDate && item.signDate.length) {  //如果有打过卡，则判断今日是否打卡
+            var len = item.signDate.length
+            var last = new Date(item.signDate[len-1])
+            if (+last >= +start && last <= +end) {
+              item.clockId._doc.clockStatus = 4      //今天确实是在指定的时间段内打卡了
+            }
           }
-        }
       }
       //给返回的数组里面的对象添加属性是无效的，属性并不会添加到这个对象上来,
       //比如直接给item.clockId._doc.clockStatus=23,这样你在打印item.clockId对象的时候，是打印不出clockStatus的，但是打印
@@ -85,7 +84,7 @@ router.post('/create', function (req, res) {    //创建一个新的打卡,creat
   } else {
     num = 3
   }
-  var img = `//${host}:${port}/images/pkq${num}.jpg`
+  var img = `//${host}:${PORT}/images/pkq${num}.jpg`
   console.log("REQ:", req.body)
   var clock = new ClockModel({
     username: body.username,

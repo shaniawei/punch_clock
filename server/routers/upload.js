@@ -3,15 +3,19 @@ var formidable = require('formidable')
 var fs=require('fs')
 var router = express.Router();
 
+const uploadPathMap={
+  'img':'uploadImg'
+}
+
 router.post('/imgUpload', function (req, res) {   //图片上传
   var body = req.body
-  var uploadPath ='uploadImg'
-  var imgName = 'img'        //前端传来的图片的name
-  console.log('session:',req.session.user)
+  var imgName = body.imgName||'img'        //前端传来的图片的name
+  var uploadPath =uploadPathMap[imgName]
+  // res.end('1234')
   dealMultipartFormData(req, imgName, uploadPath, function (fields, files, newName){
     var url = `/${uploadPath}/${newName}`
     console.log("imgUpload",url)
-      res.json({url:url,errCode:0,msg:'ok'})      
+    res.end(JSON.stringify({ url: url, errCode: 0, msg: 'ok' }))   
   })
 })
 
@@ -26,7 +30,7 @@ function dealMultipartFormData(req, picName, pathname, callback) {
   form.uploadDir = dir + "\\public\\" + pathname;
   form.keepExtensions = true;
   form.parse(req, function (err, fields, files) {
-    var oldPath = files[picName].path;       //这里其实还可以优化，因为没有上传题图的时候，会产生一个0kb的文件
+    var oldPath = files[picName].path;       
     var oldName = files[picName].name;
     var date = new Date();
     var dateTime = date.getTime().toString();

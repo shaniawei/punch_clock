@@ -17,7 +17,6 @@
   <navigator url='../create_clock/create_clock' open-type='navigateTo' hover-class="none">
     <button type='default' class="create-clock clock_btn">+ 创建一个新的打卡{{test}}</button>
   </navigator>
-
   <template is="clock_project_module" data="{{title: '我管理的打卡项目',ClockType:ownerClock,clockStatus:clockStatus}}"/>
   <template is="clock_project_module" data="{{title: '我参加的打卡项目',ClockType:onClock,clockStatus:clockStatus}}"/>
 </view>

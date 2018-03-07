@@ -13,6 +13,8 @@ Page({
   data: {
     isLimitTime:true,
     isLimitDate:true,
+    name:"",
+    desc:"",
     startTime:"08:00",
     endTime:"10:00",
     startDate:year+"-"+month+"-"+date,
@@ -69,10 +71,15 @@ Page({
     
   },
   onNameBlur:function(e){
-    this.onTextBlur(e.detail.value, 'name', '名字不能为空')
+    this.setData({
+      name:e.detail.value
+    })
   },
   onDescBlur: function (e) {
-    this.onTextBlur(e.detail.value,'desc','简介不能为空')
+    this.setData({
+      desc: e.detail.value
+    })
+    // this.onTextBlur(e.detail.value,'desc','简介不能为空')
   },
   onTextBlur: function (value,key,tips) {
     var that = this
@@ -93,12 +100,20 @@ Page({
     var data=this.data
     var userInfo=app.globalData.userInfo
     var req={}
+    if(!data.name){
+      that.toast("名称不能为空")
+      return
+    }
+    if(!data.desc){
+      that.toast('描述不能为空')
+      return
+    }
     if(!data.isTimeReady){
-      that.toast("打卡时间不能为空")
+      that.toast("时间不能为空")
       return
     }
     if(!data.isDateReady){
-      that.toast("打卡日期不能为空")
+      that.toast("日期不能为空")
       return
     }
     if(data.isLimitTime){
@@ -136,18 +151,12 @@ Page({
     })
   },
   toast:function(tips){
-    var that=this;
-    var timer
-    this.setData({
-      isShowToast: true,
-      toastTips: tips
+    wx.showToast({
+      title: tips,
+      image:'../../resources/images/warning.jpg',
+      duration:1000,
+      mask:true
     })
-    clearTimeout(timer)
-    timer=setTimeout(function () {
-      that.setData({
-        isShowToast: false
-      })
-    }, interval)
   },
   /**
    * 生命周期函数--监听页面加载

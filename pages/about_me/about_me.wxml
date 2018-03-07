@@ -10,27 +10,36 @@
       <text>我的打卡日记</text>
     </view>
     <view class="diary-con">
-      <!-- <view class="con-no">
+       <view class="con-no" wx:if="{{!dailyInfo}}">
         暂无打卡日记哦~
-      </view> -->
-      <view class="con-yes">
-        <view class="head">
-          <image src="{{ userInfo.avatarUrl }}"></image>
-          <view class="fate">
-            <view class="nickname">{{ userInfo.nickName }}</view>
-            <text>已坚持</text>
-            <text>1</text>
-            <text>天</text>
+      </view> 
+      <view wx:else>
+       <view wx:for="{{dailyInfo}}">
+          <view class="con-yes" wx:for="{{item.signDate}}" wx:for-item="items" wx:for-index="indexs">
+            <view class="head">
+              <image src="{{ userInfo.avatarUrl }}"></image>
+              <view class="fate">
+                <view class="nickname">{{ userInfo.nickName }}</view>
+                <text>已坚持</text>
+                <text>{{item.signDate.length}}</text>
+                <text>天</text>
+              </view>
+              <image class="delete_diary_btn" src="../../resources/images/trash.png" 
+                      data-childIndex="{{indexs}}"
+                      data-parIndex="{{index}}"
+                      data-id="{{item.clockId._id}}" 
+                      bindtap="deleteDiary"></image>
+            </view>
+            <view class="diary_txt">
+              {{item.daily[indexs]}}
+            </view>
+            <view class="clock_project_name">{{item.clockId.name}}</view>
+            <view class="publish_time">
+              <!-- <text>3</text>
+              <text>分钟前</text> -->
+              <text>{{items}}</text>
+            </view>
           </view>
-          <image class="delete_diary_btn" src="../../resources/images/trash.png" bindtap="deleteDiary"></image>
-        </view>
-        <view class="diary_txt">
-          哈哈哈哈哈哈哈哈哈哈哈
-        </view>
-        <view class="clock_project_name"># 前端 #</view>
-        <view class="publish_time">
-          <text>3</text>
-          <text>分钟前</text>
         </view>
       </view>
     </view>

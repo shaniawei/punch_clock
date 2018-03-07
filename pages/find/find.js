@@ -14,6 +14,7 @@ Page({
   join(e){
     var tar=e.target
     var dataset=tar.dataset
+    var userInfo = app.globalData.userInfo
     wx.request({
       url: `${url}/joinClock`,
       method:'POST',
@@ -30,7 +31,7 @@ Page({
       fail:function(){
         wx.showToast({
           title: '加入打卡失败',
-          icon: 'fail',
+          icon: '../../resources/images/warning.jpg',
           duration: 1000,
           mask: true
         })

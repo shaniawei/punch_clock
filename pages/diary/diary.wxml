@@ -1,7 +1,12 @@
 <!--diary.wxml-->
 <view class="m-diary">
   <view class="content">
-    <textarea placeholder="说说今天的感想和收获吧" auto-height maxlength='-1'/>
+    <textarea placeholder="说说今天的感想和收获吧" value="{{daily}}" bindinput='onDailyBlur' auto-height maxlength='-1'/>
   </view>
+  <view wx:if="{{dailyImg&&dailyImg.length}}">
+    <image class='img' wx:for="{{dailyImg}}"
+                      src='{{item}}'></image>
+  </view>
+  <view class='img_btn' bindtap='uploadImg'>+</view>
   <button type="primary" class="m-diary-btn" bindtap='clock'>发表日记</button>
 </view>

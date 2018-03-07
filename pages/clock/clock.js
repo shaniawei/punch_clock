@@ -48,7 +48,7 @@ Page({
     var userInfo = app.globalData.userInfo
     wx.request({
       url: `${url}/singleClockInfo`,
-      method: 'GET',
+      method: 'POST',
       data: {
         username: userInfo.nickName,
         userImg: userInfo.avatarUrl,
@@ -58,7 +58,7 @@ Page({
         console.log("SingleClockInfo", data)
         var data = data.data
         that.setData({
-          clockInfo: data
+          clockInfo: data.clockInfo
         })
       }
     })
