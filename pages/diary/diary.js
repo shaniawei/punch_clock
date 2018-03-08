@@ -62,6 +62,7 @@ Page({
         clockId: data.clockId
       },
       success: function (data) {
+        console.log('dairy:',data)
         wx.switchTab({
           url: '../index/index'
         })

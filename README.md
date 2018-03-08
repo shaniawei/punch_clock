@@ -32,13 +32,13 @@ db.clocks.save({
 
 用户打卡表
 db.userclocks.save({
-   clockId: "5a59d4afde068e2e4817f0a9",
+   clockId: "5a576d123e53d05e9823204c",
    username:"axin",
    userImg:"https://wx.qlogo.cn/mmopen/vi_32/mNCCyibfZicjaL994ACadhsJlbGLB6JR8p9diaibhiblzwMxXHeHl4oAt6afRYotqG7ibw94LqqZAu0oMfm6SUnTIJQA/0",
    isOwner: true
 })
 db.userclocks.save({
-   clockId: "5a59d4bcde068e2e4817f0aa",
+   clockId: "5a576d183e53d05e9823204d",
    username:"gardon",
    userImg:"https://wx.qlogo.cn/mmopen/vi_32/mNCCyibfZicjaL994ACadhsJlbGLB6JR8p9diaibhiblzwMxXHeHl4oAt6afRYotqG7ibw94LqqZAu0oMfm6SUnTIJQA/0",
    isOwner: true

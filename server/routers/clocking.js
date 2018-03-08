@@ -20,7 +20,7 @@ router.post('/joinClock', function (req, res) {   //加入某个打卡项目，f
   })
 })
 
-router.get('/singleClockInfo',function(req,res){   //获取当个打卡项目的信息，clock
+router.post('/singleClockInfo',function(req,res){   //获取当个打卡项目的信息，clock
   var body=req.body
   console.log('singleClockInfo:',body)
   UserClockModel.find({

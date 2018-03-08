@@ -20,7 +20,7 @@ router.post('/clockInfo', function (req, res) {   //获取所有的打卡信息,
     var clockNumMap={}
     var _id
     items.forEach(function (item) {
-      console.log(item,111111)
+      console.log(item.username)
       if(item.isOwner&&(item.username!==body.username||item.userImg!=body.userImg)){  //非当前用户
         clockInfo.push(item)
        }

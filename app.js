@@ -39,7 +39,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    url: "http://127.0.0.1:8997"
+    url: "http://127.0.0.1:8999"
   },
   formateDate:function(time) {
       if(!time) return ''
