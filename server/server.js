@@ -47,7 +47,7 @@ router.forEach(path=>{
 var request=require('request')
 async function auto(){
     await saveFakeData({
-      username: "axin2222222", userImg: "https://wx.qlogo.cn/mmopen/vi_32/mNCCyibfZicjaL994ACadhsJlbGLB6JR8p9diaibhiblzwMxXHeHl4oAt6afRYotqG7ibw94LqqZAu0oMfm6SUnTIJQA/0",
+      username: "axin3333333", userImg: "https://wx.qlogo.cn/mmopen/vi_32/mNCCyibfZicjaL994ACadhsJlbGLB6JR8p9diaibhiblzwMxXHeHl4oAt6afRYotqG7ibw94LqqZAu0oMfm6SUnTIJQA/0",
       name: "读书打开，长期有效",
       startTime: "00:00",
       endTime: "23:59",
@@ -56,7 +56,7 @@ async function auto(){
       desc: '每天都要读书打卡'
     })
     await saveFakeData({
-      username: "gardon22222222",
+      username: "gardon33333333",
       userImg: "https://wx.qlogo.cn/mmopen/vi_32/mNCCyibfZicjaL994ACadhsJlbGLB6JR8p9diaibhiblzwMxXHeHl4oAt6afRYotqG7ibw94LqqZAu0oMfm6SUnTIJQA/0",
       name: "晨跑，无效",
       startTime: "07:00",
