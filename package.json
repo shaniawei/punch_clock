@@ -24,7 +24,7 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "formidable": "^1.1.1",
-    "mongoose": "^4.13.6"
+    "mongoose": "^5.7.7"
   },
   "devDependencies": {
     "request": "^2.85.0"
